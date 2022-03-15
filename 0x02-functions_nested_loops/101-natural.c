@@ -1,21 +1,19 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
+ *main - check for multiples of 3 and 5
  *
- * Return: Always 0 (Success)
+ *Return: 0 always
  */
-
 int main(void)
 {
-	int i, sum = 0;
-
-	for (i = 0; i < 1024; i++)
-	{
-		if ((i % 5) == 0 || (i % 3) == 0)
-			sum += i;
-	}
-	printf("%d\n", sum);
-
-	return (0);
+int x = 1024, y, sum = 0;
+for (y = 0; y < x; y++)
+{
+if ((y % 3 == 0) || (y % 5 == 0))
+{
+sum = sum + y;
+}
+}
+printf("%d\n", sum);
+return (0);
 }

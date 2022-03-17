@@ -1,18 +1,32 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
- * Return: Always 0
+ *main - largest prime facter of 612852475143.
+ *
+ *Return: 0
  */
 int main(void)
 {
-	unsigned long int i = 3, n = 612852475143;
+	long int x, i, pf;
 
-	for (; i < 12057; i += 2)
+	pf = -1;
+	x = 612852475143;
+
+	while (x % 2 == 0)
 	{
-		while (n % i == 0 && n != i)
-			n /= i;
+		pf = 2;
+		x = x / 2;
 	}
-	printf("%lu\n", n);
+	for (i = 3; i <= x / 2; i = i + 2)
+	{
+		while (x % i == 0)
+		{
+			pf = i;
+			x = x / i;
+		}
+	}
+	if (x > 2)
+		pf = x;
+
+	printf("%ld\n", pf);
 	return (0);
 }

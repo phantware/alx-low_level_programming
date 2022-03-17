@@ -1,14 +1,15 @@
-#include "main.h"
-#include <stdio.h>
-
+#include "holberton.h"
 /**
- * main - check the code for Holberton School students.
+ *mul - multiplies two ints.
+ *@a: integer.
+ *@b: integer.
  *
- * Return: Always 0.
+ *Return: product.
  */
-int main(void)
+int mul(int a, int b)
 {
-  printf("%d\n", mul(98, 1024));
-  printf("%d\n", mul(-402, 4096));
-  return (0);
+	int product;
+
+	product = a * b;
+	return (product);
 }

@@ -1,16 +1,20 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * swap_int - function swaps the values of two integers
- * @a: integer one
- * @b: integer two
- * Return: 0 Success
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
  */
-void swap_int(int *a, int *b)
+int main(void)
 {
-	int temporal;
+  int a;
+  int b;
 
-	temporal = *a;
-
-	*a = *b;
-	*b = temporal;
+  a = 98;
+  b = 42;
+  printf("a=%d, b=%d\n", a, b);
+  swap_int(&a, &b);
+  printf("a=%d, b=%d\n", a, b);
+  return (0);
 }

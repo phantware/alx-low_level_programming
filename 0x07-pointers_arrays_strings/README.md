@@ -75,3 +75,21 @@ Prototype: void print*diagsums(int \_a, int size);
 Format: see example
 You are allowed to use the standard library
 Note that in the following example we are casting an int[][] into an int*. This is not something you should do. The goal here is to make sure you understand how an array of array is stored in memory.
+
+8. Double pointer, double fun
+   #advanced
+   Write a function that sets the value of a pointer to a char.
+
+Prototype: void set_string(char \**s, char *to);
+julien@ubuntu:~/0x07$ cat 100-main.c
+#include "main.h"
+#include <stdio.h>
+
+9. My primary goal of hacking was the intellectual curiosity, the seduction of adventure
+   #advanced
+   Create a file that contains the password for the crackme2 executable.
+
+Your file should contain the exact password, no new line, no extra space
+ltrace, ldd, gdb and objdump can help
+You may need to install the openssl library to run the crakme2 program: sudo apt install libssl-dev
+Edit the source list sudo nano /etc/apt/sources.list to add the following line: deb http://security.ubuntu.com/ubuntu xenial-security main Then sudo apt update and sudo apt install libssl1.0.0

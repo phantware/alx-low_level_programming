@@ -1,7 +1,5 @@
-#ifndef FILE_MAIN
-#define FILE_MAIN
-
-/*a list that was given from the task 0 */
+#ifndef _HOLBERTON_H_
+#define _HOLBERTON_H_
 
 int _putchar(char c);
 int _islower(int c);

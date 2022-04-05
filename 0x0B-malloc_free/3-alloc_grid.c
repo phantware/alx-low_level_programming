@@ -1,35 +1,43 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * *_strspn - gets the length of a prefix substring
- * @s: string to evaluate
- * @accept: string containing the list of characters to match in s
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers.
+ * @width: width of the array.
+ * @height: height of the array.
  *
- * Return: the number of bytes in the initial segment
- * of s which consist only of bytes from accept
+ * Return: pointer of an array of integers
  */
-unsigned int _strspn(char *s, char *accept)
+int **alloc_grid(int width, int height)
 {
-	int i, j, f, flag;
+	int **gridout;
+	int i, j;
 
-	f = 0;
+	if (width < 1 || height < 1)
+		return (NULL);
 
-	for (i = 0; s[i] != '\0'; i++)
+	gridout = malloc(height * sizeof(int *));
+	if (gridout == NULL)
 	{
-		flag = 0;
-		for (j = 0; accept[j] != '\0'; j++)
+		free(gridout);
+		return (NULL);
+	}
+
+	for (i = 0; i < height; i++)
+	{
+		gridout[i] = malloc(width * sizeof(int));
+		if (gridout[i] == NULL)
 		{
-			if (s[i] == accept[j])
-			{
-				f++;
-				flag = 1;
-			}
-		}
-		if (flag == 0)
-		{
-			return (f);
+			for (i--; i >= 0; i--)
+				free(gridout[i]);
+			free(gridout);
+			return (NULL);
 		}
 	}
 
-	return (0);
+	for (i = 0; i < height; i++)
+		for (j = 0; j < width; j++)
+			gridout[i][j] = 0;
+
+	return (gridout);
 }

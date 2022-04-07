@@ -2,37 +2,48 @@
 #include <stdlib.h>
 
 /**
- * _realloc - A function that reallocates a memory block using malloc and free
- * @ptr: pointer to the memory previously allocated
- * @old_size: old size in bytes of memory llocated space
- * @new_size: new size in bytes of memory to be allocated
- * Return: void pointer to new memory location
+ * string_nconcat - concatenates two strings.
+ * @s1: first string.
+ * @s2: second string.
+ * @n: amount of bytes.
+ *
+ * Return: pointer to the allocated memory.
+ * if malloc fails, status value is equal to 98.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *new_location, *new_ptr;
-	unsigned int i = 0;
+	char *sout;
+	unsigned int ls1, ls2, lsout, i;
 
-	if (new_size == old_size)
-		return (ptr);
-	if (ptr == NULL) /* treat as normal malloc */
-	{
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-			return (NULL);
-		return (ptr);
-	}
-	if (new_size == 0 && ptr)
-	{
-		free(ptr);
+	if (s1 == NULL)
+		s1 = "";
+
+	if (s2 == NULL)
+		s2 = "";
+
+	for (ls1 = 0; s1[ls1] != '\0'; ls1++)
+		;
+
+	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
+		;
+
+	if (n > ls2)
+		n = ls2;
+
+	lsout = ls1 + n;
+
+	sout = malloc(lsout + 1);
+
+	if (sout == NULL)
 		return (NULL);
-	}
-	new_location = malloc(new_size);
-	new_ptr = ptr;
-	if (old_size > new_size)
-		old_size = new_size;
-	for (i = 0; i < old_size; i++)
-		new_location[i] = new_ptr[i];
-	free(ptr);
-	return (new_location);
+
+	for (i = 0; i < lsout; i++)
+		if (i < ls1)
+			sout[i] = s1[i];
+		else
+			sout[i] = s2[i - ls1];
+
+	sout[i] = '\0';
+
+	return (sout);
 }

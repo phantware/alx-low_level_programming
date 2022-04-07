@@ -41,6 +41,7 @@ void _is_zero(char *argv[])
  *
  * Return: pointer of a char array.
  */
+
 char *_initialize_array(char *ar, int lar)
 {
 	int i = 0;

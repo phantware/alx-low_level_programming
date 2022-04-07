@@ -9,7 +9,6 @@
  *
  * Return: no return.
  */
-
 void _is_zero(char *argv[])
 {
 	int i, isn1 = 1, isn2 = 1;
@@ -42,7 +41,6 @@ void _is_zero(char *argv[])
  *
  * Return: pointer of a char array.
  */
-
 char *_initialize_array(char *ar, int lar)
 {
 	int i = 0;
@@ -61,7 +59,6 @@ char *_initialize_array(char *ar, int lar)
  *
  * Return: length of the number.
  */
-
 int _checknum(char *argv[], int n)
 {
 	int ln;
